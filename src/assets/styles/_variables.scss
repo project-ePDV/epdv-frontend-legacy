@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 /* Ionic scss variables tokens */
 $ion-color-primary: #113112;
@@ -73,34 +73,34 @@ $font-color-black-400: #666666;
 $font-color-danger: #B3261E;
 
 /* Fonts Variables tokens */
-$normal-12: 400 0.75rem 'Roboto';
-$normal-14: 400 0.875rem 'Roboto';
-$normal-16: 400 1rem 'Roboto';
-$normal-18: 400 1.125rem 'Roboto';
-$normal-20: 400 1.25rem 'Roboto';
-$normal-24: 400 1.5rem 'Roboto';
-$normal-32: 400 2rem 'Roboto';
+$font-normal-12: 400 0.75rem 'Roboto';
+$font-normal-14: 400 0.875rem 'Roboto';
+$font-normal-16: 400 1rem 'Roboto';
+$font-normal-18: 400 1.125rem 'Roboto';
+$font-normal-20: 400 1.25rem 'Roboto';
+$font-normal-24: 400 1.5rem 'Roboto';
+$font-normal-32: 400 2rem 'Roboto';
 
-$semibold-12: 500 0.75rem 'Roboto';
-$semibold-14: 500 0.875rem 'Roboto';
-$semibold-16: 500 1rem 'Roboto';
-$semibold-18: 500 1.125rem 'Roboto';
-$semibold-20: 500 1.25rem 'Roboto';
-$semibold-24: 500 1.5rem 'Roboto';
-$semibold-32: 500 2rem 'Roboto';
+$font-semibold-12: 500 0.75rem 'Roboto';
+$font-semibold-14: 500 0.875rem 'Roboto';
+$font-semibold-16: 500 1rem 'Roboto';
+$font-semibold-18: 500 1.125rem 'Roboto';
+$font-semibold-20: 500 1.25rem 'Roboto';
+$font-semibold-24: 500 1.5rem 'Roboto';
+$font-semibold-32: 500 2rem 'Roboto';
 
-$bold-12: 700 0.75rem 'Roboto';
-$bold-14: 700 0.875rem 'Roboto';
-$bold-16: 700 1rem 'Roboto';
-$bold-18: 700 1.125rem 'Roboto';
-$bold-20: 700 1.25rem 'Roboto';
-$bold-24: 700 1.5rem 'Roboto';
-$bold-32: 700 2rem 'Roboto';
+$font-bold-12: 700 0.75rem 'Roboto';
+$font-bold-14: 700 0.875rem 'Roboto';
+$font-bold-16: 700 1rem 'Roboto';
+$font-bold-18: 700 1.125rem 'Roboto';
+$font-bold-20: 700 1.25rem 'Roboto';
+$font-bold-24: 700 1.5rem 'Roboto';
+$font-bold-32: 700 2rem 'Roboto';
 
 //Border Radius Variables
 $border-radius-circle: 50%;
-$border-radius-4: 0.25rem;
 $border-radius-8: 0.5rem;
+$border-radius-4: 0.25rem;
 $border-radius-12: 0.75rem;
 $border-radius-16: 1rem;
 

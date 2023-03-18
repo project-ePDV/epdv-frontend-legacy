@@ -1,0 +1,75 @@
+@import "src/assets/styles/styles.scss";
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $colors-brand-green-600;
+}
+
+img {
+  width: 161px;
+}
+
+ion-card {
+  position: fixed;
+  bottom: 0;
+  min-height: 450px;
+  border-radius: 16px 16px 0 0;
+  width: 100%;
+}
+
+ion-button {
+  width: fit-content;
+}
+
+ion-item {
+  width: 100%;
+  --border-color: #697069;
+  --highlight-color-focused: #417944;
+}
+
+.container {
+  &-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+}
+
+.social-media {
+  width: 48px;
+  height: 48px;
+  background-color: #cccccc;
+  border-radius: $border-radius-circle;
+}
+
+.card-content-md {
+  padding: 0 1rem;
+}
+
+.title {
+  font: $font-normal-32;
+  color: $font-color-black-900;
+  text-transform: uppercase;
+}
+
+.text {
+  font: $font-normal-12;
+  color: $font-color-black-400;
+}
