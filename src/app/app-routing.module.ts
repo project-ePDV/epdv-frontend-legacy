@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 	{
-		path: '',
+		path: 'sign',
 		loadChildren: () =>
 			import('./modules/sign/sign.module').then((m) => m.SignModule)
 	}
