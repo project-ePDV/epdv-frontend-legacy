@@ -1,14 +1,12 @@
 @import "src/assets/styles/styles.scss";
 
 body {
-	background-color: $colors-brand-green-600;
+	background-color: $color-brand-green-600;
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
-	justify-content: center;
 	width: 100vw;
-	min-height: 100vh;
 	padding: 1rem;
+	overflow-y: scroll;
 }
 
 img {
@@ -22,17 +20,6 @@ ion-item {
 		border: none !important;
 	}
 	
-}
-
-.title {
-	font: $font-normal-32;
-	color: $font-color-black-900;
-	text-transform: uppercase;
-}
-
-.text {
-	font: $font-normal-12;
-	color: $font-color-black-400;
 }
 
 .container {
@@ -53,28 +40,20 @@ ion-item {
 		width: 100%;
 	}
 
-  &-social {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0;
-  }
-}
+	&-input {
+		width: 100%;
+	}
 
-.social-media {
-  width: 48px;
-  height: 48px;
-  background-color: #cccccc;
-  border-radius: $border-radius-circle;
-}
-
-.container-checkbox {
-	display: flex;
-	align-items: center;
-	align-self: flex-start;
-	gap: 8px;
+	&-checkbox {
+		display: flex;
+		align-items: center;
+		align-self: flex-start;
+		gap: 8px;
+	}
 }
 
 .container-link {
 	display: flex;
+	gap: .25rem;
 }
+

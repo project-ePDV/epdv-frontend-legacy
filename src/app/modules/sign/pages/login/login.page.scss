@@ -4,7 +4,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $colors-brand-green-600;
+  background-color: $color-brand-green-600;
+  overflow-y: scroll;
 }
 
 img {
@@ -26,7 +27,7 @@ ion-button {
 ion-item {
   width: 100%;
   --border-color: #697069;
-  --highlight-color-focused: #417944;
+  --highlight-color-focused: $color-brand-green-500;
 }
 
 .container {
@@ -43,33 +44,8 @@ ion-item {
     align-items: center;
     gap: 4px;
   }
-
-  &-social {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-}
-
-.social-media {
-  width: 48px;
-  height: 48px;
-  background-color: #cccccc;
-  border-radius: $border-radius-circle;
 }
 
 .card-content-md {
   padding: 0 1rem;
-}
-
-.title {
-  font: $font-normal-32;
-  color: $font-color-black-900;
-  text-transform: uppercase;
-}
-
-.text {
-  font: $font-normal-12;
-  color: $font-color-black-400;
 }

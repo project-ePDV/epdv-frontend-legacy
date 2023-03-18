@@ -1,10 +1,27 @@
 @import "./variables";
 
-p, h2 {
+p,
+h2 {
     margin: 0 !important;
 }
 
 ion-card {
     padding: 2rem 0;
     margin: 0;
+}
+
+.title {
+    font: $font-normal-32;
+    color: $font-color-black-900;
+    text-transform: uppercase;
+}
+
+.text {
+    font: $font-normal-12;
+    color: $font-color-black-400;
+}
+
+.error-message {
+    font: $font-normal-12;
+    padding: 0.25rem;
 }
