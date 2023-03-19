@@ -10,26 +10,43 @@
     </ion-card-header>
 
     <ion-card-content>
-      <form action="" class="container-form">
-        <ion-item fill="outline">
-          <ion-label position="floating">Email</ion-label>
-          <ion-input
-            type="email"
-            placeholder="exemplo@exemplo.com.br"
-          ></ion-input>
-        </ion-item>
+      <form 
+        [formGroup]="this.loginForm"
+        class="container-form">
+        <div class="container-input">
+          <ion-item fill="outline">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input
+              type="email"
+              placeholder="exemplo@exemplo.com.br"
+              formControlName="email">
+            </ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="submitValidationRequired()">
+            <p class="error-message">É necessario preencher o campo Email</p>
+          </ion-text>
+        </div>
 
-        <ion-item fill="outline">
-          <ion-label position="floating">Senha</ion-label>
-          <ion-input 
-            type="password" 
-            placeholder="********">
-          </ion-input>
-        </ion-item>
+        <div class="container-input">
+          <ion-item fill="outline">
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input 
+              type="password" 
+              placeholder="********"
+              formControlName="password">
+            </ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="submitValidationRequired()">
+            <p class="error-message">É necessario preencher o campo Senha</p>
+          </ion-text>
+        </div>
 
         <a class="text ion-text-center">Esqueceu sua senha?</a>
 
-        <ion-button color="tertiary" type="submit" shape="round">
+        <ion-button 
+          color="tertiary" 
+          shape="round"
+          (click)="onSubmit()">
           Login
         </ion-button>
       </form>

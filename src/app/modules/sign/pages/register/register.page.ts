@@ -8,34 +8,32 @@ import { RegisterClient } from '../../modules/registerCliente';
   styleUrls: ['./register.page.scss']
 })
 export class RegisterPage {
-  registerClient!: FormGroup;
+  registerForm!: FormGroup;
   submitted = false;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.registerClient = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
       confirmPassword: ['', [Validators.required]],
-      accept: ['']
+      accept: []
     })
   }
 
   onSubmit() {
-    console.log(this.registerClient.get('name')?.errors!['required']);
     this.submitted = true;
-    if (this.registerClient.valid) {
-      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
-      console.table(this.registerClient.value);
+    if (this.registerForm.valid) {
+      console.table(this.registerForm.value);
     } else {
       console.log('error');
       
     }
   }
 
-  submitValidation() {
-    return this.registerClient.get('name')?.errors!['required'] && this.submitted;
+  submitValidationRequired() {
+    return this.registerForm.get('name')?.errors?.['required'] && this.submitted;
   }
 }

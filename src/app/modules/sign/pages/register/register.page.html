@@ -1,7 +1,9 @@
 <body>
 	<main class="container">
 		<h2 class="title">Cadastro</h2>
-		<form class="container-form" [formGroup]="registerClient">
+		<form 
+			[formGroup]="this.registerForm"
+			class="container-form">
 			<div class="container-input">
 				<ion-item fill="outline">
 					<ion-label position="floating">Nome</ion-label>
@@ -11,7 +13,7 @@
 						formControlName="name">
 					</ion-input>
 				</ion-item>
-				<ion-text color="danger" *ngIf="submitValidation()">
+				<ion-text color="danger" *ngIf="submitValidationRequired()">
 					<p class="error-message">É necessario preencher o campo Nome</p>
 				</ion-text>
 			</div>
@@ -26,7 +28,7 @@
 						formControlName="email">
 					</ion-input>
 				</ion-item>
-				<ion-text color="danger" *ngIf="submitValidation()">
+				<ion-text color="danger" *ngIf="submitValidationRequired()">
 					<p class="error-message">É necessario preencher o campo E-mail</p>
 				</ion-text>
 			</div>
@@ -40,7 +42,7 @@
 						formControlName="password">
 					</ion-input>
 				</ion-item>
-				<ion-text color="danger" *ngIf="submitValidation()">
+				<ion-text color="danger" *ngIf="submitValidationRequired()">
 					<p class="error-message">É necessario preencher o campo Senha</p>
 				</ion-text>
 			</div>
@@ -53,7 +55,7 @@
 						formControlName="confirmPassword">
 					</ion-input>
 				</ion-item>
-				<ion-text color="danger" *ngIf="submitValidation()">
+				<ion-text color="danger" *ngIf="submitValidationRequired()">
 					<p class="error-message">É necessario preencher o campo Confirmar Senha</p>
 				</ion-text>
 			</div>
@@ -66,12 +68,15 @@
 					</ion-checkbox>
 					<ion-label class="text">Você aceita os termos de uso</ion-label>
 				</div>
-				<ion-text color="danger" *ngIf="submitValidation()">
+				<ion-text color="danger" *ngIf="submitValidationRequired()">
 					<p class="error-message">É necessario que você aceite os termos de uso</p>
 				</ion-text>
 			</div>
 
-			<ion-button color="tertiary" type="submit" (click)="onSubmit()" shape="round">
+			<ion-button 
+				color="tertiary" 
+				shape="round"
+				(click)="onSubmit()">
 				Cadastrar
 			</ion-button>
 		</form>

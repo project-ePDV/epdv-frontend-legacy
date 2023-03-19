@@ -25,3 +25,22 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+### Routes
+
+app/sign/login
+app/sign/register
+
+app/(:user)/funcionario
+app/(:user)/funcionario/dados
+app/(:user)/funcionario/ponto
+app/(:user)/funcionario/caixa
+app/(:user)/funcionario/estoque
+
+app/(:user)/caixa
+app/(:user)/caixa/novo-produto
+app/(:user)/caixa/fechar-caixa
+
+app/(:user)/estoque
+
+app/(:user)/admin/estoque
