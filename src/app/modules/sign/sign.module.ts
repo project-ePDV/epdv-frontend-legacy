@@ -17,6 +17,6 @@ import { CommonModule } from '@angular/common';
     IonicModule.forRoot()
   ],
   providers: [],
-  bootstrap: [LoginPage]
+  bootstrap: [LoginPage, RegisterPage]
 })
 export class SignModule { }
