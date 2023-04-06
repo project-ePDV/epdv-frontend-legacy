@@ -7,12 +7,10 @@ const routes: Routes = [
 	{
 		path: 'login',
 		component: LoginPage,
-		pathMatch: 'full'
 	},
 	{
 		path: 'register',
 		component: RegisterPage,
-		pathMatch: 'full'
 	}
 ];
 
