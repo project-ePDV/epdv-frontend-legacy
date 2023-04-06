@@ -2,18 +2,20 @@ import { NgModule } from '@angular/core';
 
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common'; 
-import { ProductsPage } from './pages/products/products.page';
 import { CashierRoutingModule } from './cashier-routing.module';
-import { HeaderComponent } from '../shared/components/header/header.component';
+import { ProductListPage } from './pages/product-list/product-list.page';
+import { SharedModule } from '../shared/shared.module';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
-  declarations: [ProductsPage, HeaderComponent],
+  declarations: [ProductListPage, ProductCardComponent],
   imports: [
     CommonModule,
     CashierRoutingModule,
+    SharedModule,
     IonicModule.forRoot()
   ],
   providers: [],
-  bootstrap: [ProductsPage]
+  bootstrap: [ProductListPage]
 })
 export class CashierModule { }

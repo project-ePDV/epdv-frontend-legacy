@@ -1,0 +1,12 @@
+section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  outline: 1px solid red;
+  margin-top: 56px;
+  padding: 1rem 1rem 5rem 1rem;
+  height: 100%;
+  overflow: scroll;
+  z-index: 10;
+}

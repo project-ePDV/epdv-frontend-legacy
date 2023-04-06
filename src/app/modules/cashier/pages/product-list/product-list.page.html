@@ -1,0 +1,7 @@
+<app-header></app-header>
+
+<section>
+  <app-product-card [source]="card" *ngFor="let card of producstList">
+    {{ card.name }}
+  </app-product-card>
+</section>

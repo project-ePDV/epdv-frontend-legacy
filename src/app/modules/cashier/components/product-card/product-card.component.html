@@ -1,1 +1,11 @@
-<p>product-card works!</p>
+<ion-card>
+  <img alt="Silhouette of mountains" [src]="this.source.image" />
+
+  <ion-card-subtitle>{{ this.source.name }}</ion-card-subtitle>
+
+  <p>{{ this.source.price | currency }}</p>
+
+  <ion-button color="tertiary">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-button>
+</ion-card>
