@@ -1,0 +1,24 @@
+@import "src/assets/styles/styles.scss";
+
+.container-tab {
+  background-color: $ion-color-tertiary;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

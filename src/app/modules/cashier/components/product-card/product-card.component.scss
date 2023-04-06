@@ -1,3 +1,5 @@
+@import "src/assets/styles/styles.scss";
+
 img {
   width: 120px;
   height: 64px;
@@ -14,10 +16,27 @@ ion-card {
 }
 
 ion-card-subtitle {
+  font: $font-semibold-16;
+  color: $font-color-black-900;
   text-align: center;
+  white-space: nowrap; 
+  width: 80%; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 
 ion-card-header,
 ion-card-content {
   padding: 0;
+}
+
+.button-round {
+  background-color: $ion-color-tertiary;
+  border-radius: $border-radius-circle;
+  padding: .5rem;
+
+  ion-icon {
+    color: $color-brand-neutral-900;
+    font-size: 24px;
+  }
 }
