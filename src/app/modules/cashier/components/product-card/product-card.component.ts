@@ -8,5 +8,5 @@ import { ProductsModel } from 'src/app/modules/shared/models/products.model';
 })
 export class ProductCardComponent {
   @Input()
-  source!: ProductsModel;
+  value!: ProductsModel;
 }

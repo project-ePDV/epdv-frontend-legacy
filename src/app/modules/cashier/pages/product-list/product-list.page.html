@@ -1,8 +1,18 @@
 <app-header></app-header>
 
-<section>
-  <app-product-card [source]="card" *ngFor="let card of producstList">
-    {{ card.name }}
+<section *ngIf="pageableProducts$ | async as productList; else loading">
+  <app-product-card 
+    *ngFor="let product of productList.records"
+    [value]="product" >
   </app-product-card>
 </section>
+
+<ng-template #loading>
+  <div class="container-loading">
+    <ion-spinner 
+      color="primary" 
+      name="crescent">
+    </ion-spinner>
+  </div>
+</ng-template>
 <app-menu-tab></app-menu-tab>
