@@ -20,3 +20,10 @@
 .icon-color {
   fill: $bg-color-white-900;
 }
+
+@media only screen and (min-width: 992px) {
+
+  .container-social {
+    margin: 2rem 0;
+  }
+}

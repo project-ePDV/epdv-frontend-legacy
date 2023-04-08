@@ -21,7 +21,6 @@ export class ProductListPage implements OnInit{
 
   paginate(page: number) {
 
-    this.pageableProducts$ = this.productsService.getPagebleProducts(page, 6);
+    this.pageableProducts$ = this.productsService.getPagebleProducts(page, 20);
   }
-
 }

@@ -1,10 +1,12 @@
 <app-header></app-header>
 
 <section *ngIf="pageableProducts$ | async as productList; else loading">
-  <app-product-card 
+  <div class="container-cards">
+    <app-product-card 
     *ngFor="let product of productList.records"
     [value]="product" >
   </app-product-card>
+  </div>
 </section>
 
 <ng-template #loading>
