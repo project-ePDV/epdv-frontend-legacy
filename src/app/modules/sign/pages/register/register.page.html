@@ -8,7 +8,7 @@
 				<ion-item fill="outline">
 					<ion-label position="floating">Nome</ion-label>
 					<ion-input 
-						type="email" 
+						type="text" 
 						placeholder="Fulano da silva"
 						formControlName="name">
 					</ion-input>
@@ -18,12 +18,25 @@
 				</ion-text>
 			</div>
 			
+			<div class="container-input">
+				<ion-item fill="outline">
+					<ion-label position="floating">Nome da Empresa</ion-label>
+					<ion-input 
+						type="text" 
+						placeholder="Google"
+						formControlName="companyName">
+					</ion-input>
+				</ion-item>
+				<ion-text color="danger" *ngIf="submitValidationRequired()">
+					<p class="error-message">É necessario preencher o campo Nome</p>
+				</ion-text>
+			</div>
 
 			<div class="container-input">
 				<ion-item fill="outline">
 					<ion-label position="floating">Email</ion-label>
 					<ion-input 
-						type="password" 
+						type="email" 
 						placeholder="exemplo@exemplo.com.br"
 						formControlName="email">
 					</ion-input>
