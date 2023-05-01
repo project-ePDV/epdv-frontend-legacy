@@ -1,0 +1,44 @@
+<div id="filter-content">
+  <ion-menu-toggle menu="filter-menu">
+    <ion-button class="ion-margin" shape="round" color="tertiary">
+      <ion-icon slot="start" name="options-sharp"></ion-icon>
+      Filtros
+    </ion-button>
+  </ion-menu-toggle>
+</div>
+
+<ion-menu contentId="main-content" menuId="filter-menu">
+  <ion-header class="container-header">
+    <ion-menu-toggle>
+      <ion-button class="ion-margin-top ion-margin-bottom btn" shape="round" fill="clear">
+        <ion-icon slot="start" name="options-sharp"></ion-icon>
+        Filtrar Produtos
+      </ion-button>
+    </ion-menu-toggle>
+  </ion-header>
+
+  <ion-content class="container-content">
+    <ion-list>
+      <ion-item>
+        <ion-label color="tertiary">Categoria</ion-label>
+        <ion-select interface="popover" placeholder="Categoria do produto">
+          <ion-select-option value="apples">Apples</ion-select-option>
+          <ion-select-option value="oranges">Oranges</ion-select-option>
+          <ion-select-option value="bananas">Bananas</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-item-group>
+      <ion-item>
+        <ion-label color="tertiary">Valor</ion-label>
+        <ion-range [dualKnobs]="true" [value]="{ lower: 0, upper: 10000 }" [pin]="true">
+        </ion-range>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-button class="ion-margin btn" shape="round" expand="full">
+      Filtrar
+    </ion-button>
+  </ion-content>
+</ion-menu>

@@ -3,15 +3,23 @@
 .container {
   background-color: $color-brand-green-200;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 56px;
+  flex-direction: column;
+  min-height: 58px;
+
+  &-top{
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 56px;
+  }
+  
 
   &-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: .5rem;
+    padding: 1rem;
   }
 
   &-links-menu {
@@ -42,6 +50,14 @@
 
 ion-content {
   --background: #417944;
+}
+
+ion-searchbar {
+  padding: 0 1rem 1rem 1rem !important;
+}
+
+ion-icon {
+  font-size: 24px;
 }
 
 .icon {

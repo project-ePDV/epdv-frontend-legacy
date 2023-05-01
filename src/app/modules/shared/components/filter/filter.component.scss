@@ -1,0 +1,27 @@
+@import "src/assets/styles/styles.scss";
+
+* {
+  // outline: 1px solid red;
+}
+
+.container {
+  &-header {
+    background-color: $color-brand-green-500;
+
+    .btn {
+      color: $bg-color-white-900;
+    }
+  }
+}
+
+.ion-padding-end {
+  --padding-end: 1px !important;
+}
+
+ion-content {
+  --background: #417944;
+}
+
+ion-range {
+  padding: 24px 16px 16px 0;
+}
