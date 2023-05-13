@@ -1,4 +1,4 @@
 export const environment = {
 	production: false,
-	apiPath: 'https://kalnascimento-congenial-space-fishstick-j7wvp9j4q9j3wxg-8080.preview.app.github.dev'
+	apiPath: 'http://localhost:8000'
 };

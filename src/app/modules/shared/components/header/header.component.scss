@@ -13,7 +13,14 @@
     align-items: center;
     min-height: 56px;
   }
+
+  &-menu {
+
+  }
   
+  .menu {
+    display: none;
+  }
 
   &-icon {
     display: flex;
@@ -63,4 +70,31 @@ ion-icon {
 .icon {
   width: 24px;
   height: 24px;
+}
+
+
+#menu {
+  display: none;
+}
+
+#menu:checked ~ .menu {
+  position: absolute;
+  top: 58px;
+  left: 0;
+  display: block;
+  width: 80%;
+  height: 100vh;
+  background-color: $color-brand-green-500;
+  z-index: 100;
+}
+
+#menu:checked ~ .search {
+  top: 114px;
+}
+
+label {
+  padding: 1rem;
+  ion-icon {
+    color: $bg-color-white-900;
+  }
 }

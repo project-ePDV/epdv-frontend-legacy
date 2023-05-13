@@ -7,10 +7,12 @@ import { CommonModule } from '@angular/common';
 
 import { StoragePage } from './pages/storage/storage.page';
 import { SharedModule } from '../shared/shared.module';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 
 @NgModule({
   declarations: [
-    StoragePage
+    StoragePage,
+    ProductItemComponent
   ],
   imports: [
     CommonModule,
