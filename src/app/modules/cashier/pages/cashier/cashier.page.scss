@@ -1,0 +1,33 @@
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 80%;
+  padding: 1rem;
+}
+
+.container-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.price::before {
+  content: "R$";
+}
+
+.nav-button {
+  width: 150px;
+  --border-radius: 1rem;
+}
+
+ion-fab {
+  position: absolute;
+  right: 1rem;
+  top: 75% !important;
+}
+
+ion-fab-list {
+  right: 0rem;
+}

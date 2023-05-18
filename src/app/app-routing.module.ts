@@ -12,6 +12,11 @@ const routes: Routes = [
 		path: 'caixa',
 		loadChildren: () =>
 			import('./modules/cashier/cashier.module').then((m) => m.CashierModule)
+	},
+	{
+		path: 'estoque',
+		loadChildren: () =>
+			import('./modules/storage/storage.module').then((m) => m.StorageModule)
 	}
 ];
 

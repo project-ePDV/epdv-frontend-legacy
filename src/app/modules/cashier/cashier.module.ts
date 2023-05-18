@@ -6,9 +6,10 @@ import { CashierRoutingModule } from './cashier-routing.module';
 import { ProductListPage } from './pages/product-list/product-list.page';
 import { SharedModule } from '../shared/shared.module';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { CashierPage } from './pages/cashier/cashier.page';
 
 @NgModule({
-  declarations: [ProductListPage, ProductCardComponent],
+  declarations: [ProductListPage, ProductCardComponent, CashierPage],
   imports: [
     CommonModule,
     CashierRoutingModule,

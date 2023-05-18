@@ -1,45 +1,44 @@
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <div class="container">
-      <ion-menu-button></ion-menu-button>
+<div id="main-content">
+  <div class="container">
+    <div class="container-top">
+      <div class="container-menu">
+        <label for="menu"><ion-icon name="menu-sharp"></ion-icon></label>
+        <input type="checkbox" name="menu" id="menu">
+        <div class="menu" [class.search]="searchbar">
+          <div class="ion-padding">
+            <div class="container-links-menu">
+              <a class="link">
+                <p>Usuário</p>
+                <ion-icon name="person-sharp"></ion-icon>
+              </a>
+              <a href="caixa" class="link">
+                <p>Caixa</p>
+                <ion-icon name="logo-usd"></ion-icon>
+              </a>
+              <a class="link">
+                <p>Estoque</p>
+                <ion-icon name="archive-sharp"></ion-icon>
+              </a>
+              <a class="link">
+                <p>Clientes</p>
+                <ion-icon name="people-sharp"></ion-icon>
+              </a>
+              <a class="link">
+                <p>Fornecedor</p>
+                <ion-icon name="swap-horizontal-sharp"></ion-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <img src="../../../../../assets/images/logo-header.svg" alt="">
+      <img src="./assets/images/logo-header.svg" alt="">
 
       <a href="app/admin/funcionario" class="container-icon">
-        <img src="../../../../../assets/images/person.svg" alt="" class="icon">
+        <img src="./assets/images/person.svg" alt="" class="icon">
       </a>
     </div>
-  </ion-header>
+    <ion-searchbar *ngIf="searchbar" placeholder="Produto">
+    </ion-searchbar>
+  </div>
 </div>
-
-<ion-menu contentId="main-content">
-  <ion-header>
-    <div class="container">
-      <ion-menu-button></ion-menu-button>
-    </div>
-  </ion-header>
-  <ion-content class="ion-padding">
-    <div class="container-links-menu">
-      <a class="link">
-        <p>Usuário</p>
-        <img src="../../../../../assets/images/person.svg" alt="" class="icon">
-      </a>
-      <a class="link">
-        <p>Caixa</p>
-        <img src="../../../../../assets/images/attach_money.svg" alt="" class="icon">
-      </a>
-      <a class="link">
-        <p>Estoque</p>
-        <img src="../../../../../assets/images/inventory_2.svg" alt="" class="icon">
-      </a>
-      <a class="link">
-        <p>Clientes</p>
-        <img src="../../../../../assets/images/groups.svg" alt="" class="icon">
-      </a>
-      <a class="link">
-        <p>Fornecedor</p>
-        <img src="../../../../../assets/images/local_shipping.svg" alt="" class="icon">
-      </a>
-    </div>
-  </ion-content>
-</ion-menu>

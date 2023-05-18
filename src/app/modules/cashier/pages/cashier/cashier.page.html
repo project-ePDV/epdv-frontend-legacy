@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<ion-content>
+  <main>
+    <ion-item>
+      <div class="container-item">
+        <label for="">test</label>
+        <label for=""><span class="price">90</span></label>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="container-item">
+        <label for="">test</label>
+        <label for=""><span class="price">90</span></label>
+      </div>
+    </ion-item>
+  </main>
+
+  <ion-fab slot="fixed">
+    <ion-fab-button color="tertiary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button color="tertiary" class="nav-button" >
+        <p>Cancelar compra</p>
+      </ion-fab-button>
+
+      <ion-fab-button color="tertiary" class="nav-button" routerLink="produtos">
+        <p>Novo produto</p>
+      </ion-fab-button>
+
+      <ion-fab-button color="tertiary" class="nav-button">
+        <p>Finalizar compra</p>
+      </ion-fab-button>
+    </ion-fab-list>
+
+  </ion-fab>
+</ion-content>
+<app-menu-tab></app-menu-tab>
