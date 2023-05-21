@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegisterClient } from '../../modules/registerCliente';
 import { RegisterService } from '../../services/register.service';
 import { RegisterCostumer } from '../../models/registerCostumer.model';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/common/authService/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,11 +12,12 @@ import { Router } from '@angular/router';
 })
 export class RegisterPage {
   registerForm!: FormGroup;
+  registerError = false;
   submitted = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private registerService: RegisterService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
@@ -67,12 +68,10 @@ export class RegisterPage {
     this.submitted = true;
 
     if (this.registerForm.valid) {
-      console.table(this.registerForm.value);
-      this.registerService.register(newCostumer).subscribe(response => {
-        this.router.navigate(['/sign/login']);
+      this.authService.register(newCostumer).subscribe({
+        complete: () => { this.router.navigate(['/sign/login']) },
+        error: () => { this.registerError = true; }
       });
-    } else {
-      console.log('error');
     }
   }
 

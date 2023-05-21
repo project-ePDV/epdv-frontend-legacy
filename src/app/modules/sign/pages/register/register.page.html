@@ -92,11 +92,14 @@
 				(click)="onSubmit()">
 				Cadastrar
 			</ion-button>
+			<ion-text color="danger" *ngIf="submitValidationRequired()">
+				<p class="error-message">Ocorreu um erro ao se registrar, tente novamente</p>
+			</ion-text>
 		</form>
 
-		<p class="text">Ou cadastre-se usando uma rede social</p>
+		<!-- <p class="text">Ou cadastre-se usando uma rede social</p> -->
 
-		<app-social-media></app-social-media>
+		<!-- <app-social-media></app-social-media> -->
 
 		<div class="container-link">
 			<p class="text">Já possui uma conta? </p>

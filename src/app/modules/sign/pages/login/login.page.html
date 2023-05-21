@@ -49,14 +49,17 @@
           (click)="onSubmit()">
           Login
         </ion-button>
+        <ion-text color="danger" *ngIf="this.authError">
+          <p class="error-message">Email e/ou senha incorretos</p>
+        </ion-text>
       </form>
     </ion-card-content>
 
-    <app-social-media></app-social-media>
+    <!-- <app-social-media></app-social-media> -->
     
     <div class="container-link">
       <p class="text">Ainda não tem uma conta?</p>
-      <a href="/sign/register" class="text">Cadraste-se</a>
+      <a href="/sign/register" class="text">Cadastre-se</a>
     </div>
   </ion-card>
 </body>
