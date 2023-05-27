@@ -47,7 +47,15 @@
           color="tertiary" 
           shape="round"
           (click)="onSubmit()">
-          Login
+          <div class="container-loading" *ngIf="isLoading; else loading">
+            <ion-spinner 
+              color="light" 
+              name="crescent">
+            </ion-spinner>
+          </div>
+          <ng-template #loading>
+            <span >Login</span>
+          </ng-template>
         </ion-button>
         <ion-text color="danger" *ngIf="this.authError">
           <p class="error-message">Email e/ou senha incorretos</p>

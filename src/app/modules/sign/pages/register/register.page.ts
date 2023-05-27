@@ -14,6 +14,7 @@ export class RegisterPage {
   registerForm!: FormGroup;
   registerError = false;
   submitted = false;
+  isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -68,9 +69,16 @@ export class RegisterPage {
     this.submitted = true;
 
     if (this.registerForm.valid) {
+      this.isLoading = true;
       this.authService.register(newCostumer).subscribe({
-        complete: () => { this.router.navigate(['/sign/login']) },
-        error: () => { this.registerError = true; }
+        complete: () => {
+          this.router.navigate(['/sign/login']);
+          this.isLoading = false;
+        },
+        error: () => {
+          this.registerError = true;
+          this.isLoading = false;
+        }
       });
     }
   }

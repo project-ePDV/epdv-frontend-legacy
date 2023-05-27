@@ -90,7 +90,15 @@
 				color="tertiary" 
 				shape="round"
 				(click)="onSubmit()">
-				Cadastrar
+				<div class="container-loading" *ngIf="isLoading; else loading">
+					<ion-spinner 
+						color="light" 
+						name="crescent">
+					</ion-spinner>
+				</div>
+				<ng-template #loading>
+					<span >Cadastrar</span>
+				</ng-template>
 			</ion-button>
 			<ion-text color="danger" *ngIf="submitValidationRequired()">
 				<p class="error-message">Ocorreu um erro ao se registrar, tente novamente</p>
