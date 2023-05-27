@@ -25,7 +25,7 @@ export class TokenService {
     window.localStorage.removeItem(KEY);
   }
 
-  validateToken(token: string) {
+  validateToken(token: string | null) {
     return this.http.get(`${environment.apiPath}/auth/token/${token}`);
   }
 }
