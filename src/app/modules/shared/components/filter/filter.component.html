@@ -18,7 +18,7 @@
   </ion-header>
 
   <ion-content class="container-content">
-    <ion-list>
+    <!-- <ion-list>
       <ion-item>
         <ion-label color="tertiary">Categoria</ion-label>
         <ion-select interface="popover" placeholder="Categoria do produto">
@@ -35,7 +35,35 @@
         <ion-range [dualKnobs]="true" [value]="{ lower: 0, upper: 10000 }" [pin]="true">
         </ion-range>
       </ion-item>
-    </ion-item-group>
+    </ion-item-group> -->
+
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header" color="tertiary">
+          <ion-label>Filtros</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-radio-group>
+            <div class="container-filter-input">
+              <ion-radio value="1" color="primary"></ion-radio>
+              <ion-label>Label</ion-label>
+            </div>
+            <div class="container-filter-input">
+              <ion-radio value="2" color="primary"></ion-radio>
+              <ion-label>Label</ion-label>
+            </div>
+            <div class="container-filter-input">
+              <ion-radio value="3" color="primary"></ion-radio>
+              <ion-label>Label</ion-label>
+            </div>
+            <div class="container-filter-input">
+              <ion-radio value="4" color="primary"></ion-radio>
+              <ion-label>Label</ion-label>
+            </div>
+          </ion-radio-group>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
 
     <ion-button class="ion-margin btn" shape="round" expand="full">
       Filtrar

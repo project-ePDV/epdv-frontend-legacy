@@ -1,0 +1,68 @@
+<body>
+	<main class="container">
+		<h2 class="title">{{ title }} produto</h2>
+		<form [formGroup]="this.registerForm" class="container-form">
+			<div class="container-input">
+				<ion-item fill="outline">
+					<ion-label position="floating">Nome</ion-label>
+					<ion-input type="text" placeholder="Coca-cola" formControlName="name">
+					</ion-input>
+				</ion-item>
+				<ion-text color="danger" *ngIf="submitValidationRequired('name')">
+					<p class="error-message">É necessário preencher o campo Nome</p>
+				</ion-text>
+			</div>
+
+			<div class="container-input">
+				<ion-item fill="outline">
+					<ion-label position="floating">Quantidade</ion-label>
+					<ion-input type="number" placeholder="00" formControlName="amount">
+					</ion-input>
+				</ion-item>
+				<ion-text color="danger" *ngIf="submitValidationRequired('amount')">
+					<p class="error-message">É necessário preencher o campo Quantidade</p>
+				</ion-text>
+			</div>
+
+			<div class="container-input">
+				<ion-item fill="outline">
+					<ion-label position="floating">Marca</ion-label>
+					<ion-input type="text" placeholder="Coca-cola" formControlName="brand">
+					</ion-input>
+				</ion-item>
+				<ion-text color="danger" *ngIf="submitValidationRequired('brand')">
+					<p class="error-message">É necessário preencher o campo Marca</p>
+				</ion-text>
+			</div>
+
+			<div class="container-input">
+				<ion-item fill="outline">
+					<ion-label position="floating">Preço unitário</ion-label>
+					<ion-input type="number" placeholder="00.00" formControlName="price">
+					</ion-input>
+				</ion-item>
+				<ion-text color="danger" *ngIf="submitValidationRequired('price')">
+					<p class="error-message">É necessário preencher o campo Preço</p>
+				</ion-text>
+			</div>
+
+			<div class="container-buttons">
+				<ion-button color="tertiary" shape="round" (click)="onSubmit()">
+					<div class="container-loading" *ngIf="isLoading; else loading">
+						<ion-spinner color="light" name="crescent">
+						</ion-spinner>
+					</div>
+					<ng-template #loading>
+						<span>{{ title }}</span>
+					</ng-template>
+				</ion-button>
+				<ion-button color="tertiary" shape="round" fill="outline" routerLink="/estoque">
+					Voltar
+				</ion-button>
+			</div>
+			<ion-text color="danger" *ngIf="registerError">
+				<p class="error-message">Ocorreu um erro ao se registrar, tente novamente</p>
+			</ion-text>
+		</form>
+	</main>
+</body>

@@ -25,3 +25,15 @@ ion-content {
 ion-range {
   padding: 24px 16px 16px 0;
 }
+
+ion-label {
+  color: $ion-color-primary;
+}
+
+.container-filter-input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem 0;
+}

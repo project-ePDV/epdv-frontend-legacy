@@ -1,9 +1,35 @@
 <app-header [searchbar]="true"></app-header>
 <ion-content class="ion-padding-bottom">
-  <app-filter></app-filter>
+  <div class="container-buttons">
+    <app-filter></app-filter>
+    <ion-button color="tertiary" shape="round" routerLink="/estoque/registrar">
+      Novo produto
+    </ion-button>
+  </div>
   <div class="container-products" *ngIf="pageableProducts$ | async as productList; else loading">
     <app-product-item *ngFor="let product of productList.records" [product]="product"></app-product-item>
+
+    <div class="container-paginate" *ngIf="productList">
+      <ion-button
+        [disabled]="this.page == 1"
+        color="tertiary" 
+        shape="round"
+        routerLink="/estoque" 
+        (click)="previPage()">
+        Voltar
+      </ion-button>
+      <ion-button 
+        [disabled]="this.total < this.size"
+        color="tertiary" 
+        shape="round" 
+        routerLink="/estoque" 
+        (click)="nextPage()">
+        Proximo
+      </ion-button>
+    </div>
   </div>
+
+  
 </ion-content>
 
 <ng-template #loading>

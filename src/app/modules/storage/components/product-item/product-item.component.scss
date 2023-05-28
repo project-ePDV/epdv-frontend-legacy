@@ -1,3 +1,43 @@
+@import "src/assets/styles/styles.scss";
+
 ion-card {
   padding: 0 !important;
+}
+
+ion-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+ion-card-title, ion-card-subtitle {
+  white-space: nowrap;
+  width: 70px;
+}
+
+.container-button {
+  display: flex;
+  padding-right: 1rem;
+  gap: 1rem;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  max-height: 35px;
+  width: 78px;
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+}
+
+.editar {
+  background-color: $ion-color-tertiary;
+  color: $bg-color-white-900;
+}
+
+.excluir {
+  border: 1px solid $ion-color-danger;
+  color:  $ion-color-danger;
 }
