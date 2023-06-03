@@ -13,7 +13,8 @@ import { ProductsModel } from 'src/app/modules/shared/models/products.model';
 })
 export class ProductListPage implements OnInit{
   producstList = createProductList(10);
-  pageableProducts$!: Observable<ProductsResponseModel>;
+  pageableProducts!: ProductsModel[] | undefined;
+  totalRecords!: number;
 
   constructor(private productsService: ProductsService, private router: Router) {}
 
@@ -22,7 +23,12 @@ export class ProductListPage implements OnInit{
   }
 
   paginate(page: number) {
-
-    this.pageableProducts$ = this.productsService.getPagebleProducts(page, 20);
+    this.pageableProducts = undefined;
+    this.productsService.getPagebleProducts(page).subscribe({
+      next: (response: ProductsResponseModel) => {
+          this.totalRecords = Number(response.total);
+          this.pageableProducts = response.records;
+      },
+    });
   }
 }

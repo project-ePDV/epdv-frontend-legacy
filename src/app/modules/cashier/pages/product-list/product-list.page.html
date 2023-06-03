@@ -1,13 +1,18 @@
 <app-header></app-header>
 
-<section *ngIf="pageableProducts$ | async as productList; else loading">
-  <div class="container-cards">
+<ion-content>
+  <div class="container-cards" *ngIf="pageableProducts; else loading">
     <app-product-card 
-    *ngFor="let product of productList.records"
-    [value]="product">
-  </app-product-card>
+      *ngFor="let product of pageableProducts"
+      [value]="product">
+    </app-product-card>
   </div>
-</section>
+
+  <app-pagination
+    (pageChange)="paginate($event)"
+    [totalRecords]="totalRecords">
+  </app-pagination>
+</ion-content>
 
 <ng-template #loading>
   <div class="container-loading">
@@ -17,4 +22,9 @@
     </ion-spinner>
   </div>
 </ng-template>
-<app-menu-tab></app-menu-tab>
+
+<ion-footer>
+  <ion-toolbar>
+    <app-menu-tab></app-menu-tab>
+  </ion-toolbar>
+</ion-footer>
