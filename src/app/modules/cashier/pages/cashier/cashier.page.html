@@ -1,5 +1,6 @@
 <app-header></app-header>
 
+
 <ion-content>
   <div class="container-products">
     <div class="container-item" *ngFor="let product of products$ | async">
@@ -35,4 +36,11 @@
     </ion-fab-list>
   </ion-fab>
 </ion-content>
-<app-menu-tab></app-menu-tab>
+
+<ion-footer>
+  <ion-toolbar>
+    <app-menu-tab></app-menu-tab>
+  </ion-toolbar>
+</ion-footer>
+
+
