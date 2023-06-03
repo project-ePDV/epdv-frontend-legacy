@@ -4,13 +4,15 @@ import { RegisterCostumer } from "src/app/modules/sign/models/registerCostumer.m
 import { Observable, tap } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
+import { Router } from "@angular/router";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private router: Router
   ) { }
 
   login(CostumerData: any): Observable<any> {
@@ -19,6 +21,11 @@ export class AuthService {
       .pipe(tap(res => {
         this.tokenService.setToken(res['token'])
       }));
+  }
+
+  logOut() {
+    this.tokenService.deleteToken();
+    this.router.navigate(['sign/login']);
   }
 
   register(CostumerData: RegisterCostumer): Observable<RegisterCostumer> {
