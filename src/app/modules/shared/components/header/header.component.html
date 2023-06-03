@@ -2,43 +2,58 @@
   <div class="container">
     <div class="container-top">
       <div class="container-menu">
-        <label for="menu"><ion-icon name="menu-sharp"></ion-icon></label>
-        <input type="checkbox" name="menu" id="menu">
-        <div class="menu" [class.search]="searchbar">
-          <div class="ion-padding">
+        <button for="menu" (click)="openMenu()">
+          <ion-icon name="menu-sharp"></ion-icon>
+        </button>
+
+        <div class="menu" id="menu-content" [class.search]="searchbar" [class.open-menu]="statusMenu" >
+          <div class="container-actions">
             <div class="container-links-menu">
-              <a class="link">
+              <!-- <a class="link">
                 <p>Usuário</p>
                 <ion-icon name="person-sharp"></ion-icon>
-              </a>
+              </a> -->
+
               <a href="caixa" class="link">
                 <p>Caixa</p>
                 <ion-icon name="logo-usd"></ion-icon>
               </a>
+
               <a href="estoque" class="link">
                 <p>Estoque</p>
                 <ion-icon name="archive-sharp"></ion-icon>
               </a>
-              <a class="link">
+
+              <!-- <a class="link">
                 <p>Clientes</p>
                 <ion-icon name="people-sharp"></ion-icon>
-              </a>
-              <a class="link">
+              </a> -->
+
+              <!-- <a class="link">
                 <p>Fornecedor</p>
                 <ion-icon name="swap-horizontal-sharp"></ion-icon>
-              </a>
+              </a> -->
             </div>
+
+            <ion-button 
+              (click)="logOut()"
+              expand="block" 
+              fill="solid" 
+              shape="round"
+              class="logout-button">
+              Logout
+            </ion-button>
           </div>
         </div>
       </div>
 
-      <img src="./assets/images/logo-header.svg" alt="">
+      <img src="./assets/images/logo-header.svg" alt="" class="ion-padding-horizontal">
 
-      <a href="app/admin/funcionario" class="container-icon">
+      <!-- <a href="app/admin/funcionario" class="container-icon">
         <img src="./assets/images/person.svg" alt="" class="icon">
-      </a>
+      </a> -->
     </div>
-    <ion-searchbar *ngIf="searchbar" placeholder="Produto">
-    </ion-searchbar>
+    
+    <ion-searchbar *ngIf="searchbar" placeholder="Produto"></ion-searchbar>
   </div>
 </div>
