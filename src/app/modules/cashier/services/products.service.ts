@@ -18,7 +18,7 @@ export class ProductsService {
 	constructor(private http: HttpClient) {
 	}
 
-	getPagebleProducts(page: number, size: number): Observable<ProductsResponseModel> {
+	getPagebleProducts(page: number, size: number = 6): Observable<ProductsResponseModel> {
 		let queryParams = { page: page, size: size };
 		
     return this.http
