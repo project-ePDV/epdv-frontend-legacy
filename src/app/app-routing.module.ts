@@ -24,7 +24,8 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/storage/storage.module').then((m) => m.StorageModule),
 		canActivate: [AuthGuard],
-	}
+	},
+	{ path: '**', redirectTo: 'caixa' }
 ];
 
 @NgModule({
