@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, ElementRef} from '@angular/core';
 import { ProductsResponseModel } from 'src/app/modules/cashier/models/ProductResponseModel.model';
 import { ProductsService } from 'src/app/modules/cashier/services/products.service';
 import { ViewDidEnter  } from '@ionic/angular';
+import { ProductsModel } from 'src/app/modules/shared/models/products.model';
 
 @Component({
   selector: 'app-storage',
@@ -10,38 +10,22 @@ import { ViewDidEnter  } from '@ionic/angular';
   styleUrls: ['./storage.page.scss']
 })
 export class StoragePage implements ViewDidEnter  {
-  pageableProducts$!: Observable<ProductsResponseModel>;
-  page = 0;
-  total = 0;
-  size = 6;
+  pageableProducts!: ProductsModel[] | undefined;
+  totalRecords!: number;
 
   constructor(private productsService: ProductsService) {}
 
   ionViewDidEnter(): void {
-    this.paginate(1)
+    this.paginate(1);
   }
   
   paginate(page: number) {
-    this.pageableProducts$ = this.productsService.getPagebleProducts(page, this.size);
-
-    this.productsService.getPagebleProducts(page, this.size).subscribe({
-      next: (value: ProductsResponseModel) => {
-          console.log(value.params);
-          this.page = Number(value.params.page);
-          this.total = Number(value.records.length);
-          console.log(value.records.length);
+    this.pageableProducts = undefined;
+    this.productsService.getPagebleProducts(page).subscribe({
+      next: (response: ProductsResponseModel) => {
+          this.totalRecords = Number(response.total);
+          this.pageableProducts = response.records;
       },
     });
-  }
-
-  nextPage() {
-    this.total >= this.size ? this.page += 1 : null;
-    
-    this.pageableProducts$ = this.productsService.getPagebleProducts(this.page, this.size);
-  }
-
-  previPage() {
-    this.page <= 0 ? this.page = 1 : this.page += 1;
-    this.pageableProducts$ = this.productsService.getPagebleProducts(this.page, this.size);
   }
 }
