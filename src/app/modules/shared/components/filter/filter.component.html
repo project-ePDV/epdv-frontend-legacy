@@ -17,56 +17,59 @@
     </ion-menu-toggle>
   </ion-header>
 
-  <ion-content class="container-content">
-    <!-- <ion-list>
-      <ion-item>
-        <ion-label color="tertiary">Categoria</ion-label>
-        <ion-select interface="popover" placeholder="Categoria do produto">
-          <ion-select-option value="apples">Apples</ion-select-option>
-          <ion-select-option value="oranges">Oranges</ion-select-option>
-          <ion-select-option value="bananas">Bananas</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
+  <ion-content class="container-content" >
+    <form [formGroup]="this.filterForm">
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="tertiary">
+            <ion-label>Filtros</ion-label>
+          </ion-item>
+  
+          <div class="ion-padding" slot="content">
+            <ion-radio-group formControlName="filter" value="price" >
+              <div class="container-filter-input">
+                <ion-radio 
+                  value="price" 
+                  color="primary">
+                </ion-radio>
+                <ion-label>Preço</ion-label>
+              </div>
+  
+              <div class="container-filter-input">
+                <ion-radio 
+                  value="amount" 
+                  color="primary">
+                </ion-radio>
+                <ion-label>Quantidade</ion-label>
+              </div>
+            </ion-radio-group>
+  
+            <ion-item-divider></ion-item-divider>
+  
+            <ion-item-group>
+              <ion-item>
+                <ion-label>Valor Mínimo</ion-label>
+                <ion-input label-placement="floating" fill="outline" placeholder="min." formControlName="minValue"></ion-input>
+              </ion-item>
+  
+              <ion-item>
+                <ion-label>Valor Máximo</ion-label>
+                <ion-input label-placement="floating" fill="outline" placeholder="máx." formControlName="maxValue"></ion-input>
+              </ion-item>
+            </ion-item-group>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
 
-    <ion-item-group>
-      <ion-item>
-        <ion-label color="tertiary">Valor</ion-label>
-        <ion-range [dualKnobs]="true" [value]="{ lower: 0, upper: 10000 }" [pin]="true">
-        </ion-range>
-      </ion-item>
-    </ion-item-group> -->
-
-    <ion-accordion-group>
-      <ion-accordion value="first">
-        <ion-item slot="header" color="tertiary">
-          <ion-label>Filtros</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-radio-group>
-            <div class="container-filter-input">
-              <ion-radio value="1" color="primary"></ion-radio>
-              <ion-label>Label</ion-label>
-            </div>
-            <div class="container-filter-input">
-              <ion-radio value="2" color="primary"></ion-radio>
-              <ion-label>Label</ion-label>
-            </div>
-            <div class="container-filter-input">
-              <ion-radio value="3" color="primary"></ion-radio>
-              <ion-label>Label</ion-label>
-            </div>
-            <div class="container-filter-input">
-              <ion-radio value="4" color="primary"></ion-radio>
-              <ion-label>Label</ion-label>
-            </div>
-          </ion-radio-group>
-        </div>
-      </ion-accordion>
-    </ion-accordion-group>
-
-    <ion-button class="ion-margin btn" shape="round" expand="full">
-      Filtrar
-    </ion-button>
+      <ion-menu-toggle>
+        <ion-button 
+          (click)="onSubmit()"
+          class="ion-margin btn"
+          shape="round"
+          expand="full">
+          Filtrar
+        </ion-button>
+      </ion-menu-toggle>
+    </form>
   </ion-content>
 </ion-menu>

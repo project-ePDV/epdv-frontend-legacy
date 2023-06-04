@@ -14,16 +14,8 @@
   }
 }
 
-.ion-padding-end {
-  --padding-end: 1px !important;
-}
-
 ion-content {
   --background: #417944;
-}
-
-ion-range {
-  padding: 24px 16px 16px 0;
 }
 
 ion-label {
@@ -36,4 +28,8 @@ ion-label {
   align-items: center;
   gap: .5rem;
   padding: .5rem 0;
+}
+
+.container-values {
+  display: flex;
 }

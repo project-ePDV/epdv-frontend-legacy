@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { MenuTabComponent } from './components/menu-tab/menu-tab.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     PaginationComponent
     ],
   imports: [
-    CommonModule, 
+    CommonModule,
+    ReactiveFormsModule,
     IonicModule.forRoot()
   ],
   exports: [
