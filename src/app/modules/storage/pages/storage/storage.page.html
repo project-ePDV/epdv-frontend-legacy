@@ -3,7 +3,7 @@
 
 <ion-content class="ion-padding-bottom" id="content">
   <div class="container-buttons">
-    <app-filter></app-filter>
+    <app-filter (onFilter)="filterProducts($event)"></app-filter>
     <ion-button color="tertiary" shape="round" routerLink="/estoque/registrar">
       Novo produto
     </ion-button>

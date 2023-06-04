@@ -4,6 +4,7 @@ import { ProductsResponseModel } from '../../cashier/models/ProductResponseModel
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RegisterProduct } from '../models/registerProduct.model';
+import { ParamsModel } from '../models/params.class';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,20 @@ export class StorageService {
   user = 'db_epdv';
   constructor(private http: HttpClient) { }
 
-  getPagebleProducts(page: number, size: number): Observable<ProductsResponseModel> {
-		let queryParams = { page: page, size: size };
+  getPagebleProducts(page: number, params: any, size: number = 6): Observable<ProductsResponseModel> {
+		let queryParams = { page: page, size: size, ...params};
+
+    if (params.filter === '') {
+      delete queryParams.filter;
+    }
+
+    if (params.minValue === '') {
+      delete queryParams.minValue;
+    }
+
+    if (params.maxValue === '') {
+      delete queryParams.maxValue;
+    }
 		
     return this.http
       .get<ProductsResponseModel>(`${environment.apiPath}/api/${this.user}/produtos`, {params: queryParams})
