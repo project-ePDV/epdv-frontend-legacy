@@ -19,7 +19,7 @@ export class ProductsService {
 	}
 
 	getPagebleProducts(page: number, size: number = 6): Observable<ProductsResponseModel> {
-		let queryParams = { page: page, size: size };
+		let queryParams = { page: page, size: size};
 		
     return this.http
       .get<ProductsResponseModel>(`${environment.apiPath}/api/${this.user}/produtos`, {params: queryParams})
