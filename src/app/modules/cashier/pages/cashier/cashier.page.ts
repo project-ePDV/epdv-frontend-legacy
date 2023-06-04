@@ -56,9 +56,6 @@ export class CashierPage implements OnInit {
               this.router.navigate(['/caixa']);
           },
         })        
-      },
-      error: (e) => {
-        console.log(e);
       }
     });
   }
