@@ -68,6 +68,10 @@ export class RegisterProductPage implements OnInit {
       this.registerForm.get('brand')?.setValue(t.records[0].brand);
       this.registerForm.get('price')?.setValue(t.records[0].price);
     })
+    //name min 2 max 50
+    //amount max 9999
+    //brand min 2 max 50
+    // price 10,2
   }
 
   onSubmit() {
