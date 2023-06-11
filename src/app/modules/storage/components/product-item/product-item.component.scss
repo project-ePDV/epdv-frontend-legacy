@@ -12,7 +12,15 @@ ion-card-header {
 
 ion-card-title, ion-card-subtitle {
   white-space: nowrap;
-  width: 70px;
+  width: 190px;
+}
+
+p {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden
 }
 
 .container-button {
