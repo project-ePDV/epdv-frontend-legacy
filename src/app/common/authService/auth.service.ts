@@ -19,12 +19,18 @@ export class AuthService {
     return this.http
       .post<any>(`${environment.apiPath}/sign/login`, CostumerData)
       .pipe(tap(res => {
-        this.tokenService.setToken(res['token'])
+        const data = {
+          token: res['token'],
+          email: res['email'],
+          company: res['company']
+        }
+        console.log(res);
+        this.tokenService.setData(data)
       }));
   }
 
   logOut() {
-    this.tokenService.deleteToken();
+    this.tokenService.deleteData();
     this.router.navigate(['sign/login']);
   }
 
