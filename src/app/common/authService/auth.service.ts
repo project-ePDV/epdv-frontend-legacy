@@ -24,7 +24,6 @@ export class AuthService {
           email: res['email'],
           company: res['company']
         }
-        console.log(res);
         this.tokenService.setData(data)
       }));
   }
