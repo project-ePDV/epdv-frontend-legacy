@@ -1,4 +1,3 @@
-
 <app-header [searchbar]="true"></app-header>
 
 <ion-content class="ion-padding-bottom" id="content">
@@ -9,24 +8,25 @@
     </ion-button>
   </div>
 
-  <div class="container-products" *ngIf="pageableProducts; else loading">
-    <app-product-item 
-      *ngFor="let product of pageableProducts" 
-      [product]="product">
+  <div class="container-products" *ngIf="pageableProducts">
+    <app-product-item *ngFor="let product of pageableProducts" [product]="product">
     </app-product-item>
   </div>
+
+  <div 
+    *ngIf="!pageableProducts?.length && isLoading"
+    class="container-not-found">
+    <p>Não há produtos cadastrados</p>
+  </div>
   
-  <app-pagination
-    (pageChange)="paginate($event)"
+  <div *ngIf="!isLoading" class="container-loading">
+    <ion-spinner color="primary" name="crescent">
+    </ion-spinner>
+  </div>
+
+  <app-pagination 
+    *ngIf="pageableProducts?.length && isLoading"
+    (pageChange)="paginate($event)" 
     [totalRecords]="totalRecords">
   </app-pagination>
 </ion-content>
-
-<ng-template #loading>
-  <div class="container-loading">
-    <ion-spinner 
-      color="primary" 
-      name="crescent">
-    </ion-spinner>
-  </div>
-</ng-template>
