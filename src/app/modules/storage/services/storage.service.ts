@@ -41,7 +41,7 @@ export class StorageService {
 
   deleteProductById(id: number) {
     return this.http
-      .delete(`${environment.apiPath}/api/${this.user}/admin/produtos/${id}`)
+      .put(`${environment.apiPath}/api/${this.user}/admin/produtos/${id}`, '')
   }
 
   registerProduct(product: RegisterProduct) {
