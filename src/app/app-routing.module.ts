@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './common/guard/auth.guard';
+import { NotFound404Page } from './modules/shared/pages/not-found404/not-found404.page';
 
 const routes: Routes = [
 	{
@@ -25,7 +26,11 @@ const routes: Routes = [
 			import('./modules/storage/storage.module').then((m) => m.StorageModule),
 		canActivate: [AuthGuard],
 	},
-	{ path: '**', redirectTo: 'caixa' }
+	{
+		path: 'notFound',
+		component: NotFound404Page
+	},
+	{ path: '**', redirectTo: 'notFound' }
 ];
 
 @NgModule({

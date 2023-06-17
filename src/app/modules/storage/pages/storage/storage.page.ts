@@ -15,6 +15,8 @@ export class StoragePage implements ViewDidEnter {
   pageableProducts!: ProductsModel[] | undefined;
   reqParams = new ParamsModel('', '', '');
   totalRecords!: number;
+  isLoading = false;
+  isEmpty = true;
 
   constructor(private storageService: StorageService) { }
 
@@ -23,12 +25,15 @@ export class StoragePage implements ViewDidEnter {
   }
 
   paginate(page: number, params: ParamsModel = this.reqParams) {
-    this.pageableProducts = undefined;
     this.storageService.getPagebleProducts(page, this.reqParams).subscribe({
       next: (response: ProductsResponseModel) => {
+        this.isLoading = true
         this.totalRecords = Number(response.total);
         this.pageableProducts = response.records;
       },
+      error: () => {
+        this.isLoading = false;
+      }
     });
   }
 

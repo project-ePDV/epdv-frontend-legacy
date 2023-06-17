@@ -1,0 +1,43 @@
+@import "src/assets/styles/styles.scss";
+
+.container {
+  &-main {
+    background-color: $bg-color-white-900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    
+    div {
+      background-color: $ion-color-primary;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      height: 90%;
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+  }
+
+
+  &-logo {
+    margin: 2rem 0;
+  }
+
+  &-nav {
+    display: flex;
+    flex-direction: column;
+    
+    button {
+      background-color: transparent;
+      color: $bg-color-white-900;
+      padding: .5rem;
+    }
+
+    button:hover {
+      text-decoration: underline;
+    }
+  }
+}
