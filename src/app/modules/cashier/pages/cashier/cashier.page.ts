@@ -15,7 +15,7 @@ const { v4: uuidv4 } = require('uuid');
 export class CashierPage implements OnInit {
   products$!: Observable<ProductsModel[]>;
   productList: Array<ProductRequestModel> = [];
-  totalPrice = 0;
+  totalPrice: any;
   requestId = '';
 
   constructor(private productService: ProductsService, private router: Router) { }
@@ -30,8 +30,8 @@ export class CashierPage implements OnInit {
             fk_request: this.requestId,
             fk_product: product.id
           } as ProductRequestModel)
-          this.totalPrice += Number(product.price);
         })
+        this.totalPrice = this.productService.totalPrice();
       }
     });
     if (this.requestId == '') {
@@ -46,21 +46,30 @@ export class CashierPage implements OnInit {
   newRequest() {
     const request = {
       id: this.requestId,
-      value: this.totalPrice.toFixed(2)
+      value: this.totalPrice
     } as RequestModel
 
+    console.log(request);
+    console.log(this.productList);
+    
     this.productService.newRequest(request).subscribe({
       complete: () => {
         this.productService.newProductRequest(this.productList).subscribe({
           complete: () => {
-              this.router.navigate(['/caixa']);
+            this.router.navigate(['/estoque']);
           },
-        })        
+        })
       }
     });
   }
 
   generateUUID(prefix: string) {
     return prefix + uuidv4().slice(0, -1);
+  }
+
+  deleteProduct(id: number) {
+    this.productService.deleteProducts(id);
+    this.productList.splice(id, 1);
+    this.totalPrice = this.productService.totalPrice();
   }
 }

@@ -40,4 +40,19 @@ export class ProductsService {
     let productList = [...this.products.getValue(), product];
     this.products.next(productList);
   }
+
+  deleteProducts(id: number) {
+    this.products.getValue().splice(id, 1);
+  }
+  
+  totalPrice() {
+    let total = 0;
+    this.products.getValue().forEach((product) => {
+      total += Number(product.price);
+    });
+
+    console.log(total.toFixed(2));
+    
+    return total.toFixed(2);
+  }
 }

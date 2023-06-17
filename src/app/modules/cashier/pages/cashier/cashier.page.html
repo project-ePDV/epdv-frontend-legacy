@@ -3,7 +3,8 @@
 
 <ion-content>
   <div class="container-products">
-    <div class="container-item" *ngFor="let product of products$ | async">
+    <div class="container-item" *ngFor="let product of products$ | async; let i = index">
+      <ion-button color="tertiary" (click)="deleteProduct(i)"><ion-icon name="trash-bin-outline"></ion-icon></ion-button>
       <label>{{ product.name }}</label>
       <label><span class="price">{{ product.price }}</span></label>
     </div>
@@ -11,7 +12,7 @@
   <div class="container-total">
     <label>Total: </label>
     <label>
-      <span class="total">{{this.totalPrice.toFixed(2)}}</span>
+      <span class="total">{{this.totalPrice}}</span>
     </label>
 
   </div>
@@ -27,7 +28,7 @@
       </ion-fab-button>
 
       <ion-fab-button color="tertiary" class="nav-button" (click)="newProduct()">
-        <p>Novo produto</p>
+        <p>Adicionar produto</p>
       </ion-fab-button>
 
       <ion-fab-button color="tertiary" class="nav-button" (click)="newRequest()">
@@ -42,5 +43,3 @@
     <app-menu-tab></app-menu-tab>
   </ion-toolbar>
 </ion-footer>
-
-
