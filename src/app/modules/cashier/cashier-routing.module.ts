@@ -16,7 +16,7 @@ const routes: Routes = [
 		pathMatch: 'full'
 	},
 	{
-		path: 'end',
+		path: 'finalizado',
 		component: FinalizePage,
 		pathMatch: 'full'
 	}

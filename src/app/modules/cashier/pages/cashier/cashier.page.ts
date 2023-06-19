@@ -17,6 +17,7 @@ export class CashierPage implements OnInit {
   productList: Array<ProductRequestModel> = [];
   totalPrice: any;
   requestId = '';
+  isLoading = false;
 
   constructor(private productService: ProductsService, private router: Router) { }
 
@@ -48,18 +49,17 @@ export class CashierPage implements OnInit {
       id: this.requestId,
       value: this.totalPrice
     } as RequestModel
-
-    console.log(request);
-    console.log(this.productList);
-    
+    this.isLoading = true;
     this.productService.newRequest(request).subscribe({
       complete: () => {
         this.productService.newProductRequest(this.productList).subscribe({
           complete: () => {
-            this.router.navigate(['/estoque']);
+            this.router.navigate(['/caixa/finalizado']);
           },
+          error: () => (this.isLoading = false)
         })
-      }
+      },
+      error: () => (this.isLoading = false)
     });
   }
 

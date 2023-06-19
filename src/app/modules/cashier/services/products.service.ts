@@ -41,6 +41,10 @@ export class ProductsService {
     this.products.next(productList);
   }
 
+  getProducts() {
+    return this.products.getValue();
+  }
+
   deleteProducts(id: number) {
     this.products.getValue().splice(id, 1);
   }
@@ -50,8 +54,6 @@ export class ProductsService {
     this.products.getValue().forEach((product) => {
       total += Number(product.price);
     });
-
-    console.log(total.toFixed(2));
     
     return total.toFixed(2);
   }

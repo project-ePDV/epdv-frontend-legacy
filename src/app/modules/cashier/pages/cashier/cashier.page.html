@@ -14,9 +14,11 @@
     <label>
       <span class="total">{{this.totalPrice}}</span>
     </label>
-
   </div>
-
+  <div *ngIf="isLoading" class="container-loading">
+    <ion-spinner color="primary" name="crescent">
+    </ion-spinner>
+  </div>
   <ion-fab slot="fixed">
     <ion-fab-button color="tertiary">
       <ion-icon name="add"></ion-icon>
