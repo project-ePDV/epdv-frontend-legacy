@@ -1,24 +1,44 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, ElementRef } from '@angular/core';
 import { ProductsResponseModel } from 'src/app/modules/cashier/models/ProductResponseModel.model';
 import { ProductsService } from 'src/app/modules/cashier/services/products.service';
+import { ViewDidEnter } from '@ionic/angular';
+import { ProductsModel } from 'src/app/modules/shared/models/products.model';
+import { ParamsModel } from '../../models/params.class';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-storage',
   templateUrl: './storage.page.html',
   styleUrls: ['./storage.page.scss']
 })
-export class StoragePage implements OnInit {
-  productList = [1,2,3,4,5,6,7,1,2,3,4,5,6,7];
-  pageableProducts$!: Observable<ProductsResponseModel>;
+export class StoragePage implements ViewDidEnter {
+  pageableProducts!: ProductsModel[] | undefined;
+  reqParams = new ParamsModel('', '', '');
+  totalRecords!: number;
+  isLoading = false;
+  isEmpty = true;
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private storageService: StorageService) { }
 
-  ngOnInit(): void {
-      this.paginate(1)
+  ionViewDidEnter(): void {
+    this.paginate(1, this.reqParams);
   }
-  
-  paginate(page: number) {
-    this.pageableProducts$ = this.productsService.getPagebleProducts(page, 20);
+
+  paginate(page: number, params: ParamsModel = this.reqParams) {
+    this.storageService.getPagebleProducts(page, this.reqParams).subscribe({
+      next: (response: ProductsResponseModel) => {
+        this.isLoading = true
+        this.totalRecords = Number(response.total);
+        this.pageableProducts = response.records;
+      },
+      error: () => {
+        this.isLoading = false;
+      }
+    });
+  }
+
+  filterProducts(filterParams: any) {
+    this.reqParams = filterParams;
+    this.paginate(1, filterParams)
   }
 }

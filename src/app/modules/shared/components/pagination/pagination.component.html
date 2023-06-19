@@ -1,0 +1,18 @@
+<div class="container-paginate">
+  <ion-button
+    [disabled]="disablePreviousButton()"
+    color="tertiary" 
+    shape="round"
+    routerLink="/estoque" 
+    (click)="previousPage()">
+    Voltar
+  </ion-button>
+  <ion-button 
+    [disabled]="disableNextButton()"
+    color="tertiary" 
+    shape="round" 
+    routerLink="/estoque" 
+    (click)="nextPage()">
+    Proximo
+  </ion-button>
+</div>

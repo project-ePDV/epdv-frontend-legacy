@@ -1,17 +1,32 @@
 <app-header [searchbar]="true"></app-header>
-<ion-content class="ion-padding-bottom">
-  <app-filter></app-filter>
-  <div class="container-products" *ngIf="pageableProducts$ | async as productList; else loading">
-    <app-product-item *ngFor="let product of productList.records" [product]="product"></app-product-item>
-  </div>
-</ion-content>
 
-<ng-template #loading>
-  <div class="container-loading">
-    <ion-spinner 
-      color="primary" 
-      name="crescent">
+<ion-content class="ion-padding-bottom" id="content">
+  <div class="container-buttons">
+    <app-filter (onFilter)="filterProducts($event)"></app-filter>
+    <ion-button color="tertiary" shape="round" routerLink="/estoque/registrar">
+      Novo produto
+    </ion-button>
+  </div>
+
+  <div class="container-products" *ngIf="pageableProducts">
+    <app-product-item *ngFor="let product of pageableProducts" [product]="product">
+    </app-product-item>
+  </div>
+
+  <div 
+    *ngIf="!pageableProducts?.length && isLoading"
+    class="container-not-found">
+    <p>Não há produtos cadastrados</p>
+  </div>
+  
+  <div *ngIf="!isLoading" class="container-loading">
+    <ion-spinner color="primary" name="crescent">
     </ion-spinner>
   </div>
-</ng-template>
 
+  <app-pagination 
+    *ngIf="pageableProducts?.length && isLoading"
+    (pageChange)="paginate($event)" 
+    [totalRecords]="totalRecords">
+  </app-pagination>
+</ion-content>

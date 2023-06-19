@@ -13,6 +13,7 @@ export class LoginPage {
   loginForm!: FormGroup;
   authError = false;
   submitted = false;
+  isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,17 +30,28 @@ export class LoginPage {
   }
 
   onSubmit() {
-    this.submitted = true;
     let loginUser;
+
+    this.submitted = true;
+
     if (this.loginForm.valid) {
+      this.isLoading = true;
+
       loginUser = {
         email: this.loginForm.value.email,
         password: this.loginForm.value.password
       };
+
       this.authService.login(loginUser).subscribe({
-        complete: () => { this.router.navigate(['/caixa'])},
-        error: () => { this.authError = true; }
-      })
+        complete: () => { 
+          this.router.navigate(['/caixa']);
+          this.isLoading = false;
+        },
+        error: () => { 
+          this.authError = true;
+          this.isLoading = false 
+        }
+      });
     }
   }
 

@@ -1,16 +1,16 @@
 <ion-card>
-  <img 
+  <!-- <img 
     [src]="this.value.image 
       ? this.value.image 
       : 'https://picsum.photos/200/300'"
     alt="Silhouette of mountains"  
-    />
+    /> -->
 
   <ion-card-subtitle>{{ this.value.name }}</ion-card-subtitle>
 
   <p>{{ this.value.price | currency }}</p>
 
-  <button class="button-round">
+  <button class="button-round" (click)="notify(this.value)">
     <ion-icon name="add-outline"></ion-icon>
   </button>
 </ion-card>

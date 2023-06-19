@@ -7,9 +7,10 @@ import { ProductListPage } from './pages/product-list/product-list.page';
 import { SharedModule } from '../shared/shared.module';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { CashierPage } from './pages/cashier/cashier.page';
+import { FinalizePage } from './pages/finalize/finalize/finalize.page';
 
 @NgModule({
-  declarations: [ProductListPage, ProductCardComponent, CashierPage],
+  declarations: [ProductListPage, ProductCardComponent, CashierPage, FinalizePage],
   imports: [
     CommonModule,
     CashierRoutingModule,

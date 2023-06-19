@@ -15,10 +15,10 @@
     align-items: center;
     width: 24px;
     height: 24px;
-
-    .icon {
-      width: 20px;
-      height: 20px;
+    cursor: pointer;
+    
+    ion-icon {
+      color: $bg-color-white-900;
     }
   }
 }

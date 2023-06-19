@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './common/guard/auth.guard';
+import { NotFound404Page } from './modules/shared/pages/not-found404/not-found404.page';
 
 const routes: Routes = [
 	{
@@ -24,11 +25,16 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/storage/storage.module').then((m) => m.StorageModule),
 		canActivate: [AuthGuard],
-	}
+	},
+	{
+		path: 'notFound',
+		component: NotFound404Page
+	},
+	{ path: '**', redirectTo: 'notFound' }
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
+	imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
 	exports: [RouterModule]
 })
 export class AppRoutingModule { }

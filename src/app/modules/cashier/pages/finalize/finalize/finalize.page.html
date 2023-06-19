@@ -1,0 +1,15 @@
+<main class="container-main">
+  <div class="container">
+    <h2>Venda finalizada</h2>
+    <div class="products">
+      <div>
+        <label *ngFor="let product of produtsList">{{product.name}}</label>
+      </div>
+      <label class="container-total">Total: {{totalPrice}}</label>
+    </div>
+    <nav class="container-nav">
+      <a href="/caixa">Voltar ao caixa</a>
+      <a (click)="navigate('/estoque')">Ir para o estoque</a>
+    </nav>
+  </div>
+</main>

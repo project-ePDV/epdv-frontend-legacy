@@ -14,14 +14,22 @@
   }
 }
 
-.ion-padding-end {
-  --padding-end: 1px !important;
-}
-
 ion-content {
   --background: #417944;
 }
 
-ion-range {
-  padding: 24px 16px 16px 0;
+ion-label {
+  color: $ion-color-primary;
+}
+
+.container-filter-input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem 0;
+}
+
+.container-values {
+  display: flex;
 }

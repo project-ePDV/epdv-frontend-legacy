@@ -1,0 +1,76 @@
+@import "src/assets/styles/styles.scss";
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $color-brand-green-600;
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+	padding: 1rem;
+	overflow-y: scroll;
+}
+
+img {
+	width: 161px;
+}
+
+ion-item {
+	width: 100%;
+
+	ion-input {
+		border: none !important;
+	}
+	
+	ion-input[formControlName="price"]::before{
+		content: 'R$ ';
+		margin-right: .25rem;
+	}
+}
+
+ion-button  {
+	min-width: 140px;
+	margin-top: 1rem;
+}
+
+.container {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	width: 100%;
+	max-width: 600px;
+	padding: 1rem;
+	border-radius: $border-radius-16;
+
+	&-form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		width: 100%;
+	}
+
+	&-input {
+		width: 100%;
+	}
+
+	&-checkbox {
+		display: flex;
+		align-items: center;
+		align-self: flex-start;
+		gap: 8px;
+	}
+}
+
+.container-link {
+	display: flex;
+	gap: .25rem;
+}
+
+.title {
+	text-align: center;
+}

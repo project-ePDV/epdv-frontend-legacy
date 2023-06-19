@@ -16,11 +16,19 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-      if (!this.tokenService.hasToken()) {
-        this.router.navigate(['/sign/login']);
-        return false;
-      }
+    let token = this.tokenService.getData().token;
+    if (!this.tokenService.hasToken()) {
+      this.router.navigate(['/sign/login']);
+      return false;
+    } else {
+      this.tokenService.validateToken(token).subscribe({
+        error: () => {
+          this.router.navigate(['/sign/login']);
+          return false;
+        },
+        complete: () => { return true }
+      });
+    }
     return true;
   }
 }

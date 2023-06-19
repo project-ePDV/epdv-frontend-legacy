@@ -4,7 +4,10 @@ export interface ProductsResponseModel {
   status: number,
   timestamp: number,
   date: string,
-  page: number,
-  size: number,
+  total: number,
+  params: {
+    page: number,
+    size: number
+  },
   records: ProductsModel[]
 }

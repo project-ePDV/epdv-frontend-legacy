@@ -1,6 +1,27 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-title>Nome: {{ this.product.name }}</ion-card-title>
-    <ion-card-subtitle>Quantidade: {{ this.product.amount }}</ion-card-subtitle>
+    <div class="container-header">
+      <ion-card-title><p>{{ this.product.name }}</p></ion-card-title>
+      <ion-card-subtitle>Quantidade: {{ this.product.amount }}</ion-card-subtitle>
+    </div>
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label></ion-label>
+        </ion-item>
+        <div class="container-button" slot="content">
+          <a routerLink="/estoque/atualizar/{{this.product.id}}" class="button editar">Editar</a>
+
+          <a class="button excluir" (click)="deleteProduct(this.product.id)">
+            <div class="container-loading" *ngIf="isLoading; else loading">
+              <ion-spinner color="danger" name="dots"></ion-spinner>
+            </div>
+            <ng-template #loading>
+              <span>Excluir</span>
+            </ng-template>
+          </a>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
   </ion-card-header>
 </ion-card>

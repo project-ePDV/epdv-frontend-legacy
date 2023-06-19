@@ -1,40 +1,47 @@
 <app-header></app-header>
 
-<ion-content>
-  <main>
-    <ion-item>
-      <div class="container-item">
-        <label for="">test</label>
-        <label for=""><span class="price">90</span></label>
-      </div>
-    </ion-item>
-    <ion-item>
-      <div class="container-item">
-        <label for="">test</label>
-        <label for=""><span class="price">90</span></label>
-      </div>
-    </ion-item>
-  </main>
 
+<ion-content>
+  <div class="container-products">
+    <div class="container-item" *ngFor="let product of products$ | async; let i = index">
+      <ion-button color="tertiary" (click)="deleteProduct(i)"><ion-icon name="trash-bin-outline"></ion-icon></ion-button>
+      <label>{{ product.name }}</label>
+      <label><span class="price">{{ product.price }}</span></label>
+    </div>
+  </div>
+  <div class="container-total">
+    <label>Total: </label>
+    <label>
+      <span class="total">{{this.totalPrice}}</span>
+    </label>
+  </div>
+  <div *ngIf="isLoading" class="container-loading">
+    <ion-spinner color="primary" name="crescent">
+    </ion-spinner>
+  </div>
   <ion-fab slot="fixed">
     <ion-fab-button color="tertiary">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
 
     <ion-fab-list side="top">
-      <ion-fab-button color="tertiary" class="nav-button" >
+      <ion-fab-button color="tertiary" class="nav-button">
         <p>Cancelar compra</p>
       </ion-fab-button>
 
-      <ion-fab-button color="tertiary" class="nav-button" routerLink="produtos">
-        <p>Novo produto</p>
+      <ion-fab-button color="tertiary" class="nav-button" (click)="newProduct()">
+        <p>Adicionar produto</p>
       </ion-fab-button>
 
-      <ion-fab-button color="tertiary" class="nav-button">
+      <ion-fab-button color="tertiary" class="nav-button" (click)="newRequest()">
         <p>Finalizar compra</p>
       </ion-fab-button>
     </ion-fab-list>
-
   </ion-fab>
 </ion-content>
-<app-menu-tab></app-menu-tab>
+
+<ion-footer>
+  <ion-toolbar>
+    <app-menu-tab></app-menu-tab>
+  </ion-toolbar>
+</ion-footer>
